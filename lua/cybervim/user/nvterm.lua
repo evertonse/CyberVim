@@ -35,9 +35,14 @@ local terminal = require("nvterm.terminal")
 
 local toggle_modes = {'n', 't'}
 local mappings = {
-  { toggle_modes, '<A-h>', function () require("nvterm.terminal").toggle('horizontal') end },
-  { toggle_modes, '<A-v>', function () require("nvterm.terminal").toggle('vertical') end },
-  { toggle_modes, '<A-i>', function () require("nvterm.terminal").toggle('float') end },
+  { toggle_modes, '<A-h>', function () terminal.toggle('horizontal') end },
+  { toggle_modes, '<A-v>', function () terminal.toggle('vertical') end },
+  { toggle_modes, '<A-i>', function () terminal.toggle('float') end },
+  { toggle_modes, '<F5>' , function () terminal.send('run.bat'.. vim.fn.expand('%'), 'horizontal') end },
+  
+  {{'n'}, '<leader><A-h>', function () terminal.new('horizontal') end },
+  {{'n'}, '<leader><A-v>', function () terminal.new('vertical') end },
+  {{'n'}, '<leader><A-i>', function () terminal.new('float') end },
 }
 local opts = { noremap = true, silent = true }
 for _, mapping in ipairs(mappings) do

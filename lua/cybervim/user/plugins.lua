@@ -83,8 +83,8 @@ return packer.startup(function(use)
 	-->> Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-    commit = "12e95e160d7d45b76a36bca6303dd8447ab77490" -- Commits on Jan 2, 2023
-		--commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
+    --commit = "12e95e160d7d45b76a36bca6303dd8447ab77490" -- Commits on Jan 2, 2023
+	  commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac", -- Oldest I think 
     --commit = "256802258084fcf6c7011dae4c3fbfaaf4b61518" -- Commits on Dec 1, 2022
 	}
   use {'nvim-treesitter/playground'}
@@ -99,15 +99,16 @@ return packer.startup(function(use)
   use 'shaunsingh/nord.nvim'
   -- Another vs code theme:
   -- for more options see: https://github.com/Mofiqul/vscode.nvim
-  --use 'Mofiqul/vscode.nvim'
+  use 'Mofiqul/vscode.nvim'
 
   -- Using my fork of Mofiqul vscode nvim theme, 
   -- but my theme is Focusing on Visual Studio Theme, rather tha vs code
-  use {'evertonse/vs.nvim' , branch = "dev"}
+  --use {'evertonse/vs.nvim' , branch = "dev"}
   --use 'marko-cerovac/material.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
 
+  -- Argumente colorings
 	use { 'm-demare/hlargs.nvim',commit = "88b925d699fb39633cdda02c24f0b3ba5d0e6964", requires = { 'nvim-treesitter/nvim-treesitter' } }
   
   if PACKER_BOOTSTRAP then
