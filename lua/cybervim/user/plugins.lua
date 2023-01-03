@@ -87,9 +87,9 @@ return packer.startup(function(use)
 	-- Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		--commit = "12e95e160d7d45b76a36bca6303dd8447ab77490",
+    commit = "12e95e160d7d45b76a36bca6303dd8447ab77490" -- Commits on Jan 2, 2023
 		--commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
-    commit = "256802258084fcf6c7011dae4c3fbfaaf4b61518" -- Commits on Dec 1, 2022
+    --commit = "256802258084fcf6c7011dae4c3fbfaaf4b61518" -- Commits on Dec 1, 2022
 	}
   use {'nvim-treesitter/playground'}
 	-- Git
