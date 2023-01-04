@@ -79,7 +79,8 @@ return packer.startup(function(use)
 	-->> Telescope
 	use { "nvim-telescope/telescope.nvim", commit = "a606bd10c79ec5989c76c49cc6f736e88b63f0da"  }
 	-->> Treesitter
-	use {
+--[[
+  use {
 		"nvim-treesitter/nvim-treesitter",
     commit = 
     --"12e95e160d7d45b76a36bca6303dd8447ab77490" -- Commits on Jan 2, 2023
@@ -95,8 +96,14 @@ return packer.startup(function(use)
     --"1fa45d8c793282d9a65044666e977220f91a2dd7"  --web-flow authored and clason committed on Nov 6, 2022
     --"dd89cafd2bc5ddbb201b6b1ea72ecd11acbe4e31" -- nov 5 2022
     --"a4b10b60c16ca141ca1dae538479889dd6932270" -- nov 2 2022
-    --"e7bdcee167ae41295a3e99ad460ae80d2bb961d7" -- nov 1 2022
-    "7709eb4b47b8ee19e760aa2771c5735fda2798e1" -- [Works]Disable folding at startup nov 1
+    --"c6992f69d303cee0b43fd59125cb7afb0262d8fe" -- [Does Not Work]nov 1 2022 Update lockfile.jason 
+    --"e7bdcee167ae41295a3e99ad460ae80d2bb961d7" -- [Turning Point][Does Not Work]nov 1 2022 lua: update queries
+
+------ USE THE COMMIT BELLOW --------------
+    --"5f85a0a2b5c8e385c1232333e50c55ebdd0e0791" -- [Works] one commit later and it stops working help: update queries nov 1 2022
+--------- USE THE COMMIT ABOVE --------------
+
+    --"7709eb4b47b8ee19e760aa2771c5735fda2798e1" -- [Works]Disable folding at startup nov 1
     -- "80503a99104e461599ef8810a64bce1b6d235f6a" -- [Works]31 oct 2022
     --"287ffdccc1dd7ed017d844a4fad069fd3340fa94" --[Works] Add regex injections for php (Verified) on Oct 28, 2022
     --"c9241287719ccd38741850765649a25b09bdb4c2" --[Works] highlights(python): add "except*" Oct 25, 2022
@@ -105,7 +112,9 @@ return packer.startup(function(use)
     --"179a06bc8b4b028960dc105feceb5a4b1cbcb41d" --style: fix code styling according to Stylua  Oct 3, 2022
     --"8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" --[Works] Commits [stable] - works with every plugin] Oct 2, 2022 
 	}
-
+--]]
+  --Optionally use mine https://github.com/evertonse/nvim-treesitter
+  use 'evertonse/nvim-treesitter'
   --use {'nvim-treesitter/playground'}
   use 'octol/vim-cpp-enhanced-highlight'
   -- Argument Coloring
