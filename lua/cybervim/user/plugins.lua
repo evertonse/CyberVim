@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		install_path,
 	})
 	print("Installing packer close and reopen Neovim...")
-	vim.cmd[[packadd packer.nvim]]
+	vim.cmd('packadd packer.nvim')
 end
 
 -->> Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -43,7 +43,6 @@ return packer.startup(function(use)
   use { "nvim-lua/plenary.nvim", commit = ""  } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs", commit = ""  } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim", commit = ""  }
-  use { "JoosepAlviste/nvim-ts-context-commentstring", commit = ""  }
   use { "kyazdani42/nvim-web-devicons", commit = ""  }
   use { "kyazdani42/nvim-tree.lua", commit = ""  }
   use { "akinsho/bufferline.nvim", commit = ""  }
@@ -113,12 +112,23 @@ return packer.startup(function(use)
     --"8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" --[Works] Commits [stable] - works with every plugin] Oct 2, 2022 
 	}
 --]]
+
   --Optionally use mine https://github.com/evertonse/nvim-treesitter
   use 'evertonse/nvim-treesitter'
-  --use {'nvim-treesitter/playground'}
-  use 'octol/vim-cpp-enhanced-highlight'
+  --[[
+  --]]
+  use { "JoosepAlviste/nvim-ts-context-commentstring", 
+    commit = 
+      "0ecf92fe5ef5cac9892bf20c9579b5f06f85c277", -- newest I could find   
+      --"0c6a1e22c29b166bbb36f7c93bf873fa5b9709a2" -- first useful commit 
+      --"c3a79f1fe6f3df36fda4034b718974167f85c56d" -- seccond useful commit 
+  } -- Nice Vim commenting --  context_commentstring { enable = true }
+
+  use {'nvim-treesitter/playground'}
+
   -- Argument Coloring
-  use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
+  use 'octol/vim-cpp-enhanced-highlight'
+  use { 'm-demare/hlargs.nvim'  }
 
 	-->> Git
 	use { "lewis6991/gitsigns.nvim",  }
@@ -128,7 +138,6 @@ return packer.startup(function(use)
   --use { "folke/tokyonight.nvim",  }
   -- use { "lunarvim/darkplus.nvim",  }
   --use 'tomasiser/vim-code-dark'
-  use 'dstein64/vim-startuptime'
   --use 'shaunsingh/nord.nvim'
   -- Another vs code theme:
   -- for more options see: https://github.com/Mofiqul/vscode.nvim
@@ -143,6 +152,8 @@ return packer.startup(function(use)
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
 
+  -->> Utils
+  use 'dstein64/vim-startuptime'
   
   if PACKER_BOOTSTRAP then
 		require("packer").sync()
