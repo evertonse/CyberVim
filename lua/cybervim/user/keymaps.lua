@@ -136,8 +136,8 @@ keymap('v', '<C-Down>', "}",opts)
 keymap('i', '<C-Up>',    "<C-o>{",opts)
 keymap('i', '<C-Down>',  "<C-o>}",opts)
 
-keymap('i', '<C-Left>',    "<C-o>b",opts)
-keymap('i', '<C-Right>',  "<C-o>e<Right>",opts)
+keymap('i', '<C-Left>',    "<C-o>b",      term_opts)
+keymap('i', '<C-Right>',  "<C-o>e<Right>",term_opts)
 
 keymap('i', '<C-v>', "<C-o><C-v>",opts)
 

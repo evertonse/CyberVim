@@ -50,13 +50,14 @@ header = {
 dashboard.section.header.val = header
 
 dashboard.section.buttons.val = {
-	dashboard.button("f", "  find file", ":Telescope find_files <cr>"),
-	dashboard.button("e", "  new file", ":ene <bar> startinsert <cr>"),
-	dashboard.button("p", "  find project", ":Telescope projects <cr>"),
-	dashboard.button("r", "  recently used files", ":Telescope oldfiles <cr>"),
-	dashboard.button("t", "  find text", ":Telescope live_grep <cr>"),
-	dashboard.button("c", "  configuration", ":e $myvimrc <cr>:NvimTreeOpen<CR>"),
-	dashboard.button("q", "  quit neovim", ":qa<cr>"),
+	dashboard.button("f", "  find [f]ile", ":Telescope find_files <cr>"),
+	dashboard.button("e", "  n[e]w file", ":ene <bar> startinsert <cr>"),
+	dashboard.button("p", "  find [p]roject", ":Telescope projects <cr>"),
+	dashboard.button("r", "  [r]ecently used files", ":Telescope oldfiles <cr>"),
+	dashboard.button("t", "  find [t]ext", ":Telescope live_grep <cr>"),
+	dashboard.button("c", "  [c]onfiguration", ":e $myvimrc <cr>:NvimTreeOpen<CR>"),
+	dashboard.button("u", "  start[u]p time", ":StartupTime<CR>"),
+	dashboard.button("q", "  [q]uit neovim", ":qa<cr>"),
 }
 
 local function footer()

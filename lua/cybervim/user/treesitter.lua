@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
+  run = ':TSPUpdate',
   ensure_installed = {
     'help', "cpp", "bash", "c", "javascript", "json", 
     "lua", "python", "typescript", "toml","tsx", "css", 
