@@ -1,5 +1,4 @@
 local fn = vim.fn
-
 -->> Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -82,9 +81,22 @@ return packer.startup(function(use)
 	-->> Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
-    --commit = "12e95e160d7d45b76a36bca6303dd8447ab77490" -- Commits on Jan 2, 2023
-    --commit = "256802258084fcf6c7011dae4c3fbfaaf4b61518" -- Commits on Dec 1, 2022
-	  commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac", -- Oldest I think 
+    commit = 
+    --"12e95e160d7d45b76a36bca6303dd8447ab77490" -- Commits on Jan 2, 2023
+    --"d31c71c959348b7b15f7e69608a47aea05ed7bc6" -- Commits on Dec 14, 2022
+    --"256802258084fcf6c7011dae4c3fbfaaf4b61518" -- Commits on Dec 1, 2022
+    --"4b900527045c49af5f43291d2cb13ae27a3bc7be" -- Nov 30, 2022
+    --"d1eaf23c9ec9aca91e219ed82ae98c96d93dd407" -- 29 nov 2022
+    --"1a767376cdb968f43af690ccac7001d2efbefb87" --ObserverOfTime committed on Nov 26, 2022
+    --"79705a1f80297d1f3178d2b30423760c060afa4a" --highlights(cpp): use more specific groups ObserverOfTime committed on Nov 26, 2022
+    --"7ce62670b2e0946e3f586f3f07a584f642b02b9b" --highlights(c): use more specific groups 
+    --"00b42ac6d4c852d34619eaf2ea822266588d75e3" -- @type.qualifier and @storageclass on Nov 6, 2022
+    --"287ffdccc1dd7ed017d844a4fad069fd3340fa94" --Add regex injections for php (Verified) on Oct 28, 2022
+    --"c9241287719ccd38741850765649a25b09bdb4c2" --highlights(python): add "except*" Oct 25, 2022
+    --"9b43ab819c756f01d2977cd481bdcaead6867174" --highlights: use @preproc where appropriate Oct 15, 2022
+	  --"b945aa0aab03d4817a42cbcb27059217d8e56ed8"--highlights(c): highlight standard streams on Oct 15, 2022
+    --"179a06bc8b4b028960dc105feceb5a4b1cbcb41d" --style: fix code styling according to Stylua  Oct 3, 2022
+    "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac", -- Commits [stable - works with every plugin] Oct 2, 2022 
 	}
 
   --use {'nvim-treesitter/playground'}
