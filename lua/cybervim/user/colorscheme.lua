@@ -1,4 +1,9 @@
 local setup_nord = function ()
+  -- Load the colorscheme
+  local status_ok, nord = pcall(require, "nord")
+  if not status_ok then
+    return status_ok
+  end
   -- Example config in lua
   vim.g.nord_contrast = true
   vim.g.nord_borders = false
@@ -7,9 +12,7 @@ local setup_nord = function ()
   vim.g.nord_uniform_diff_background = true
   vim.g.nord_bold = false
 
-  -- Load the colorscheme
-  require('nord').set()
-  local highlights = require("nord").bufferline.highlights({
+  local highlights = nord.bufferline.highlights({
     italic = true,
     bold = true,
   })
@@ -23,6 +26,7 @@ local setup_nord = function ()
       highlights = highlights,
     })
   end
+  return status_ok
 end
 
 local setup_material = function()
@@ -91,13 +95,15 @@ local setup_material = function()
     })
     vim.g.material_style = "deep ocean"
   end
+
+  return status_ok
 end
 
 local setup_vscode = function()
 
   local status_ok, vscode = pcall(require, "material")
   if not status_ok then 
-    return
+    return status_ok
   end
   -- For dark theme (neovim's default)
   
@@ -130,6 +136,7 @@ local setup_vscode = function()
     }
   })
   
+    return status_ok
 end
 
 local colorscheme = "tokyonight"

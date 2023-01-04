@@ -79,7 +79,6 @@ return packer.startup(function(use)
 
 	-->> Telescope
 	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
-
 	-->> Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
@@ -87,29 +86,35 @@ return packer.startup(function(use)
     --commit = "256802258084fcf6c7011dae4c3fbfaaf4b61518" -- Commits on Dec 1, 2022
 	  commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac", -- Oldest I think 
 	}
-  use {'nvim-treesitter/playground'}
+
+  --use {'nvim-treesitter/playground'}
+  
+  -- Argument Coloring
+  use { 'm-demare/hlargs.nvim',commit = "88b925d699fb39633cdda02c24f0b3ba5d0e6964", requires = { 'nvim-treesitter/nvim-treesitter' } }
+
 	-->> Git
 	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
 
 	-->> Colorschemes
-  use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
-  use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
+  --use 'marko-cerovac/material.nvim'
+  --use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
+  -- use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
   --use 'tomasiser/vim-code-dark'
   use 'dstein64/vim-startuptime'
-  use 'shaunsingh/nord.nvim'
+  --use 'shaunsingh/nord.nvim'
   -- Another vs code theme:
   -- for more options see: https://github.com/Mofiqul/vscode.nvim
-  use 'Mofiqul/vscode.nvim'
+  --use 'Mofiqul/vscode.nvim'
 
-  -- Using my fork of Mofiqul vscode nvim theme, 
-  -- but my theme is Focusing on Visual Studio Theme, rather tha vs code
+  --[[ 
+    Using my fork of Mofiqul vscode nvim theme, 
+    but my theme is Focusing on Visual Studio Theme, rather tha vs code
+  --]]
+  use {'evertonse/vs.nvim',commit="a87ad02da3892247a355193837d90efa63581d33", branch = "base"} -- use this for bare minimum, first commit and base branch
   --use {'evertonse/vs.nvim' , branch = "dev"}
-  --use 'marko-cerovac/material.nvim'
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
 
-  -- Argumente colorings
-	use { 'm-demare/hlargs.nvim',commit = "88b925d699fb39633cdda02c24f0b3ba5d0e6964", requires = { 'nvim-treesitter/nvim-treesitter' } }
   
   if PACKER_BOOTSTRAP then
 		require("packer").sync()

@@ -9,7 +9,7 @@ configs.setup({
 	highlight = {
 		enable = true, -- false will disable the whole extension
 		disable = { "css" }, -- list of language that will be disabled
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false,
     custom_captures = {},
 	},
 	autopairs = {
@@ -17,11 +17,11 @@ configs.setup({
 	},
 	indent = { enable = true, disable = { "python", "css" } },
   
-  query_linter = {
-    enable = false,
-    use_virtual_text = true,
-    lint_events = {"BufWrite", "CursorHold"},
-  },
+ -- query_linter = {
+ --   enable = false,
+ --   use_virtual_text = true,
+ --   lint_events = {"BufWrite", "CursorHold"},
+ -- },
   illuminate = {
     enable = false,
     loaded = true,
@@ -35,7 +35,6 @@ configs.setup({
       node_incremental = "grn",
       scope_incremental = "grc"
     },
-    module_path = "nvim-treesitter.incremental_selection"
   },
   playground = {
     enable = true,
@@ -54,5 +53,50 @@ configs.setup({
       goto_node = '<cr>',
       show_help = '?',
     },
-  } 
+  },
+
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ['aa'] = '@parameter.outer',
+        ['ia'] = '@parameter.inner',
+        ['af'] = '@function.outer',
+        ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+      },
+    },
+    move = {
+      enable = true,
+      set_jumps = true, -- whether to set jumps in the jumplist
+      goto_next_start = {
+        [']m'] = '@function.outer',
+        [']]'] = '@class.outer',
+      },
+      goto_next_end = {
+        [']M'] = '@function.outer',
+        [']['] = '@class.outer',
+      },
+      goto_previous_start = {
+        ['[m'] = '@function.outer',
+        ['[['] = '@class.outer',
+      },
+      goto_previous_end = {
+        ['[M'] = '@function.outer',
+        ['[]'] = '@class.outer',
+      },
+    },
+    swap = {
+      enable = true,
+      swap_next = {
+        ['<leader>a'] = '@parameter.inner',
+      },
+      swap_previous = {
+        ['<leader>A'] = '@parameter.inner',
+      },
+    },
+  },
 })

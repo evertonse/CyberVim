@@ -104,9 +104,9 @@ keymap("n", "<leader>nvf", ":NvimTreeFocus<CR>"           ,opts)
 -- >> move fast with crtl move
 keymap("n", '<C-h>', "b",    opts) 
 
-keymap("n", '<C-l>', "w",    opts) 
+keymap("n", '<C-l>', "e",    opts) 
 keymap("n", '<C-Left>', "b",opts)  
-keymap("n", '<C-Right>',  "w",opts)  
+keymap("n", '<C-Right>',  "e",opts)  
 
 keymap('n', '<C-j>', "}",opts)
 keymap('n', '<C-k>', "{",opts)

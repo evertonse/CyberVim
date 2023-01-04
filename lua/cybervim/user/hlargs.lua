@@ -29,7 +29,7 @@ hlargs.setup {
   performance = {
     parse_delay = 1,
     slow_parse_delay = 50,
-    max_iterations = 400,
+    max_iterations = 200,
     max_concurrent_partial_parses = 30,
     debounce = {
       partial_parse = 3,
