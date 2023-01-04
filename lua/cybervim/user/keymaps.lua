@@ -85,6 +85,11 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "<A-Down>", ":move '>+1<CR>gv-gv", opts)
+
+keymap("v", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "<A-Up>", ":move '<-2<CR>gv-gv", opts)
 -- Terminal --
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
@@ -101,10 +106,10 @@ keymap("n", "<leader>nve", ":NvimTreeFindFileToggle<CR>"  ,opts)
 keymap("n", "<leader>nvf", ":NvimTreeFocus<CR>"           ,opts)
 
 
--- >> move fast with crtl move
-keymap("n", '<C-h>', "b",    opts) 
+-- >> move fast with crtl Movinge
+keymap("n", '<C-h>', "b", opts) 
 
-keymap("n", '<C-l>', "e",    opts) 
+keymap("n", '<C-l>', "e", opts) 
 keymap("n", '<C-Left>', "b",opts)  
 keymap("n", '<C-Right>',  "e",opts)  
 
