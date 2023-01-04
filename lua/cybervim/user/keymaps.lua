@@ -1,5 +1,5 @@
-local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
+local opts = { noremap = true, silent = true }
 -- WARNING, if any mapping is giving you trouble try:
 -- for terminal
 --    :verbose tmap <key you want>
@@ -37,17 +37,17 @@ vim.g.mapleader = " "
 --dontwork--keymap("n", "<C-j>", "<C-w>j", opts)
 --dontwork--keymap("n", "<C-k>", "<C-w>k", opts)
 --dontwork--keymap("n", "<C-q>", "<C-w>l", opts)
-
 -- Resize with arrows
+
 keymap("n", "<M-[>", ":resize -2<CR>", opts)
 keymap("n", "<M-]>", ":resize +2<CR>", opts)
 keymap("n", "<M-,>", ":vertical resize -2<CR>", opts)
 keymap("n", "<M-.>", ":vertical resize +2<CR>", opts)
 
 --- keeping it centered
-keymap("n", "n", "nzzzv",opts)
-keymap("n", "N", "Nzzzv",opts)
-keymap("n", "J", "mzJ`z",opts)
+--keymap("n", "n", "nzzzv",opts)
+--keymap("n", "N", "Nzzzv",opts)
+--keymap("n", "J", "mzJ`z",opts)
 
 --- moving text
 keymap("v", "J", ":m '>+1<CR>gv=gv",opts)
@@ -58,6 +58,8 @@ keymap("v", "K", ":m '<-2<CR>gv=gv",opts)
 keymap("n", "Y", "y$",opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- [B]uffer [N]ew
+keymap("n", "<leader>bn", ":tabnew<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==g", opts)
@@ -108,10 +110,10 @@ keymap("n", "<leader>nvf", ":NvimTreeFocus<CR>"           ,opts)
 
 -- >> move fast with crtl Movinge
 keymap("n", '<C-h>', "b", opts) 
-
 keymap("n", '<C-l>', "e", opts) 
+
 keymap("n", '<C-Left>', "b",opts)  
-keymap("n", '<C-Right>',  "e",opts)  
+keymap("n", '<C-Right>', "e",opts)  
 
 keymap('n', '<C-j>', "}",opts)
 keymap('n', '<C-k>', "{",opts)
@@ -119,12 +121,27 @@ keymap('n', '<C-k>', "{",opts)
 keymap('n', '<C-Up>', "{",opts)
 keymap('n', '<C-Down>', "}",opts)
 
+keymap("v", '<C-h>', "b", opts) 
+keymap("v", '<C-l>', "e", opts) 
+
+keymap("v", '<C-Left>', "b",opts)  
+keymap("v", '<C-Right>', "e",opts)  
+
+keymap('v', '<C-j>', "}",opts)
+keymap('v', '<C-k>', "{",opts)
+
+keymap('v', '<C-Up>', "{",opts)
+keymap('v', '<C-Down>', "}",opts)
+
 keymap('i', '<C-Up>',    "<C-o>{",opts)
 keymap('i', '<C-Down>',  "<C-o>}",opts)
 
+keymap('i', '<C-Left>',    "<C-o>b",opts)
+keymap('i', '<C-Right>',  "<C-o>e<Right>",opts)
+
 keymap('i', '<C-v>', "<C-o><C-v>",opts)
 
--- << move fast with crtl move
+-- << Move fast with crtl move
 
 -- >> Shift Selection :
 keymap('n', '<S-Up>', "v<Up>",opts)
@@ -173,17 +190,16 @@ keymap("n", '<C-s>', ":w<CR>", opts) -- saving with crt + s on insert mode
 keymap("v", '<M-Up>', ":m '<-2<CR>gv=gv",opts)
 keymap("v", '<M-Down', ":m '>+2<CR>gv=gv",opts)
 
-keymap("n", "J", "mzJ`z",opts)
-keymap("n", "<C-d>", "<C-d,optss>zz",opts)
-keymap("n", "<C-u>", "<C-u,optss>zz",opts)
+--keymap("n", "J", "mzJ`z",opts)
+keymap("n", "<C-d>", "<C-d>zzz",opts)
+keymap("n", "<C-u>", "<C-u>zzz",opts)
 keymap("n", "n", "nzzzv" ,opts)
 keymap("n", "N", "Nzzzv" ,opts)
 
 -- greatest remap ever
-keymap("x", "<leader>p", "\"_dP",opts)
+keymap("x", "<leader>p", '\"_dP',opts)
 
--- >> Clip Board options 
--- make it not yank it, pretty much everything
+-- >> Clip Board option 
 keymap("n", "<leader>y", '"_y',opts)
 keymap("v", "<leader>y", '"_y',opts)
 keymap("n", "<leader>Y", '"_Y',opts)
@@ -197,6 +213,19 @@ keymap("v", "<leader>D", '"_D',opts)
 keymap("n", "<leader>p", '"_p',opts)
 keymap("v", "<leader>p", '"_p',opts)
 keymap("n", "<leader>p", '"_P',opts)
+
+-- make it not yank it, pretty much everything
+keymap("n", "<leader>d", '_d',opts)
+keymap("v", "<leader>d", '_d',opts)
+
+keymap("n", "<leader>D", '_D',opts)
+keymap("v", "<leader>D", '_D',opts)
+
+keymap("n", "<leader>p", '_p',opts)
+keymap("v", "<leader>p", '_p',opts)
+
+keymap("v", "<leader>p", '_P',opts)
+keymap("n", "<leader>p", '_P',opts)
 
 keymap("n", "x", '"_x',opts)
 keymap("v", "x", '"_x',opts)
@@ -241,12 +270,12 @@ keymap('i', '<S-Tab>', "<C-d>",opts)
 --keymap('n', '<leader>te',':ToggleTerm<CR>',opts)
 -- make it work on Terminal mode
 
--- Undo with C-u on insert mode 
+-- Undo with A-u on insert mode is alredy a thing
 keymap('i', '<C-u>','<C-o>u',opts) 
 -- Undo with C-u on insert mode 
 keymap('i', '<C-r>','<C-o><C-r>',opts) 
 
--- C-a already does ths 
+-- <leader>a already does ths 
 --keymap('n', '<leader>ds',':Alpha<CR>',opts)
 --keymap('i', '<BS>','<ESC>:lua print("hello")',opts)
 

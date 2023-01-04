@@ -15,8 +15,11 @@ local settings = {
 		border = "none",
 		icons = {
 			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
+			package_pending = "ﰭ",
+      -- look here https://www.nerdfonts.com/cheat-sheet
+      --羽ﲊ精ﰭ
+			--package_pending = "",
+			package_uninstalled = "",
 		},
 	},
 	log_level = vim.log.levels.INFO,

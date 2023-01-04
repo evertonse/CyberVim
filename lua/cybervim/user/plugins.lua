@@ -34,7 +34,25 @@ packer.init({
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
-	},
+    non_interactive = false, -- If true, disable display windows for all operations
+    compact = false, -- If true, fold updates results by default
+    working_sym = '羽', -- The symbol for a plugin being installed/updated
+    error_sym = '✗', -- The symbol for a plugin with an error in installation/updating
+    done_sym = '✓', -- The symbol for a plugin which has completed installation/updating
+    removed_sym = '-', -- The symbol for an unused plugin which was removed
+    moved_sym = '→', -- The symbol for a plugin which was moved (e.g. from opt to start)
+    header_sym = '━', -- The symbol for the header line in packer's display
+    show_all_info = true, -- Should packer show all update details automatically?
+    prompt_border = 'double', -- Border style of prompt popups.
+    keybindings = { -- Keybindings for the display window
+      quit = 'q',
+      toggle_update = 'u', -- only in preview
+      continue = 'c', -- only in preview
+      toggle_info = '<CR>',
+      diff = 'd',
+      prompt_revert = 'r',
+    }
+  },
 })
 
 -->> Install your plugins here
@@ -67,8 +85,8 @@ return packer.startup(function(use)
 	-->> Snippets
   use { "L3MON4D3/LuaSnip",                     commit = "5570fd797eae0790affb54ea669a150cad76db5d"  } --snippet engine
   use { "rafamadriz/friendly-snippets",         commit = "484fb38b8f493ceeebf4e6fc499ebe41e10aae25"  } -- a bunch of snippets to use
-	-->> LSP
 
+	-->> LSP
 	use { "neovim/nvim-lspconfig",                commit = "0687eaacc634a82f4832599653ad1305fdf0c941"  } -- enable LSP
   use { "williamboman/mason.nvim",              commit = "df1dd889b72ddcf63e262c22b8e69087560c698d" } -- simple to use language server installer
   use { "williamboman/mason-lspconfig.nvim",    commit = "aa25b4153d2f2636c3b3a8c8360349d2b29e7ae3"  }
@@ -77,6 +95,8 @@ return packer.startup(function(use)
 
 	-->> Telescope
 	use { "nvim-telescope/telescope.nvim",        commit = "a606bd10c79ec5989c76c49cc6f736e88b63f0da"  }
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
 	-->> Treesitter
 --[[
