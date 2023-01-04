@@ -39,45 +39,45 @@ packer.init({
 
 -->> Install your plugins here
 return packer.startup(function(use)
-  use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
-  use { "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" } -- Useful lua functions used by lots of plugins
-  use { "windwp/nvim-autopairs", commit = "4fc96c8f3df89b6d23e5092d31c866c53a346347" } -- Autopairs, integrates with both cmp and treesitter
-  use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
-  use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
-  use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
-  use { "kyazdani42/nvim-tree.lua", commit = "7282f7de8aedf861fe0162a559fc2b214383c51c" }
-  use { "akinsho/bufferline.nvim", commit = "83bf4dc7bff642e145c8b4547aa596803a8b4dc4" }
-	use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
-  use { "nvim-lualine/lualine.nvim", commit = "a52f078026b27694d2290e34efa61a6e4a690621" }
-  --use { "akinsho/toggleterm.nvim", commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda" } -- Toggle Terminal
-  use { "NvChad/nvterm", commit = "29a70ef608a8cc5db3a5fc300d39a39d1a44a863" } --Nv Chad Toggle Terminal, just another option
-  use { "ahmedkhalf/project.nvim", commit = "628de7e433dd503e782831fe150bb750e56e55d6" }
-  use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
-  use { "lukas-reineke/indent-blankline.nvim", commit = "db7cbcb40cc00fc5d6074d7569fb37197705e7f6" }
-  use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" }
-	use {"folke/which-key.nvim"}
+  use { "wbthomason/packer.nvim", commit = ""  } -- Have packer manage itself
+  use { "nvim-lua/plenary.nvim", commit = ""  } -- Useful lua functions used by lots of plugins
+  use { "windwp/nvim-autopairs", commit = ""  } -- Autopairs, integrates with both cmp and treesitter
+  use { "numToStr/Comment.nvim", commit = ""  }
+  use { "JoosepAlviste/nvim-ts-context-commentstring", commit = ""  }
+  use { "kyazdani42/nvim-web-devicons", commit = ""  }
+  use { "kyazdani42/nvim-tree.lua", commit = ""  }
+  use { "akinsho/bufferline.nvim", commit = ""  }
+	use { "moll/vim-bbye", commit = ""  }
+  use { "nvim-lualine/lualine.nvim", commit = ""  }
+  --use { "akinsho/toggleterm.nvim",  } -- Toggle Terminal
+  use { "NvChad/nvterm", commit = ""  } --Nv Chad Toggle Terminal, just another option
+  use { "ahmedkhalf/project.nvim", commit = ""  }
+  use { "lewis6991/impatient.nvim", commit = ""  }
+  use { "lukas-reineke/indent-blankline.nvim", commit = ""  }
+  use { "goolord/alpha-nvim", commit = ""  }
+	use {"folke/which-key.nvim", commit = ""}
 
 	-->> Cmp 
-  use { "hrsh7th/nvim-cmp", commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc" } -- The completion plugin
-  use { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa" } -- buffer completions
-  use { "hrsh7th/cmp-path", commit = "447c87cdd6e6d6a1d2488b1d43108bfa217f56e1" } -- path completions
-	use { "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" } -- snippet completions
-	use { "hrsh7th/cmp-nvim-lsp", commit = "3cf38d9c957e95c397b66f91967758b31be4abe6" }
-	use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
+  use { "hrsh7th/nvim-cmp", commit = ""  } -- The completion plugin
+  use { "hrsh7th/cmp-buffer", commit = ""  } -- buffer completions
+  use { "hrsh7th/cmp-path", commit = ""  } -- path completions
+	use { "saadparwaiz1/cmp_luasnip", commit = ""  } -- snippet completions
+	use { "hrsh7th/cmp-nvim-lsp", commit = ""  }
+	use { "hrsh7th/cmp-nvim-lua", commit = ""  }
 
 	-->> Snippets
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
-  use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
+  use { "L3MON4D3/LuaSnip", commit = ""  } --snippet engine
+  use { "rafamadriz/friendly-snippets", commit = ""  } -- a bunch of snippets to use
 	-->> LSP
 
-	use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" } -- enable LSP
-  use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
-	use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
-  use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+	use { "neovim/nvim-lspconfig", commit = ""  } -- enable LSP
+  use { "williamboman/mason.nvim", commit = "" } -- simple to use language server installer
+  use { "williamboman/mason-lspconfig.nvim", commit = ""  }
+	use { "jose-elias-alvarez/null-ls.nvim", commit = ""  } -- for formatters and linters
+  use { "RRethy/vim-illuminate", commit = ""  }
 
 	-->> Telescope
-	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+	use { "nvim-telescope/telescope.nvim", commit = "a606bd10c79ec5989c76c49cc6f736e88b63f0da"  }
 	-->> Treesitter
 	use {
 		"nvim-treesitter/nvim-treesitter",
@@ -90,27 +90,34 @@ return packer.startup(function(use)
     --"1a767376cdb968f43af690ccac7001d2efbefb87" --ObserverOfTime committed on Nov 26, 2022
     --"79705a1f80297d1f3178d2b30423760c060afa4a" --highlights(cpp): use more specific groups ObserverOfTime committed on Nov 26, 2022
     --"7ce62670b2e0946e3f586f3f07a584f642b02b9b" --highlights(c): use more specific groups 
-    --"00b42ac6d4c852d34619eaf2ea822266588d75e3" -- @type.qualifier and @storageclass on Nov 6, 2022
-    --"287ffdccc1dd7ed017d844a4fad069fd3340fa94" --Add regex injections for php (Verified) on Oct 28, 2022
-    --"c9241287719ccd38741850765649a25b09bdb4c2" --highlights(python): add "except*" Oct 25, 2022
+    --"00b42ac6d4c852d34619eaf2ea822266588d75e3" --[Does Not Work] @type.qualifier and @storageclass on Nov 6, 2022
+    --"ae104a057fc4164af8884f0b5540c79be95f5fc5"  --[does not work] fix: update scheme queries to parser change
+    --"1fa45d8c793282d9a65044666e977220f91a2dd7"  --web-flow authored and clason committed on Nov 6, 2022
+    --"dd89cafd2bc5ddbb201b6b1ea72ecd11acbe4e31" -- nov 5 2022
+    --"a4b10b60c16ca141ca1dae538479889dd6932270" -- nov 2 2022
+    --"e7bdcee167ae41295a3e99ad460ae80d2bb961d7" -- nov 1 2022
+    "7709eb4b47b8ee19e760aa2771c5735fda2798e1" -- [Works]Disable folding at startup nov 1
+    -- "80503a99104e461599ef8810a64bce1b6d235f6a" -- [Works]31 oct 2022
+    --"287ffdccc1dd7ed017d844a4fad069fd3340fa94" --[Works] Add regex injections for php (Verified) on Oct 28, 2022
+    --"c9241287719ccd38741850765649a25b09bdb4c2" --[Works] highlights(python): add "except*" Oct 25, 2022
     --"9b43ab819c756f01d2977cd481bdcaead6867174" --highlights: use @preproc where appropriate Oct 15, 2022
-	  --"b945aa0aab03d4817a42cbcb27059217d8e56ed8"--highlights(c): highlight standard streams on Oct 15, 2022
+	  --"b945aa0aab03d4817a42cbcb27059217d8e56ed8" --highlights(c): highlight standard streams on Oct 15, 2022
     --"179a06bc8b4b028960dc105feceb5a4b1cbcb41d" --style: fix code styling according to Stylua  Oct 3, 2022
-    "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac", -- Commits [stable - works with every plugin] Oct 2, 2022 
+    --"8e763332b7bf7b3a426fd8707b7f5aa85823a5ac" --[Works] Commits [stable] - works with every plugin] Oct 2, 2022 
 	}
 
   --use {'nvim-treesitter/playground'}
-  
+  use 'octol/vim-cpp-enhanced-highlight'
   -- Argument Coloring
-  use { 'm-demare/hlargs.nvim',commit = "88b925d699fb39633cdda02c24f0b3ba5d0e6964", requires = { 'nvim-treesitter/nvim-treesitter' } }
+  use { 'm-demare/hlargs.nvim', requires = { 'nvim-treesitter/nvim-treesitter' } }
 
 	-->> Git
-	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
+	use { "lewis6991/gitsigns.nvim",  }
 
 	-->> Colorschemes
   --use 'marko-cerovac/material.nvim'
-  --use { "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" }
-  -- use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
+  --use { "folke/tokyonight.nvim",  }
+  -- use { "lunarvim/darkplus.nvim",  }
   --use 'tomasiser/vim-code-dark'
   use 'dstein64/vim-startuptime'
   --use 'shaunsingh/nord.nvim'
@@ -122,7 +129,7 @@ return packer.startup(function(use)
     Using my fork of Mofiqul vscode nvim theme, 
     but my theme is Focusing on Visual Studio Theme, rather tha vs code
   --]]
-  use {'evertonse/vs.nvim',commit="a87ad02da3892247a355193837d90efa63581d33", branch = "base"} -- use this for bare minimum, first commit and base branch
+  use {'evertonse/vs.nvim', branch = "base"} -- use this for bare minimum, first commit and base branch
   --use {'evertonse/vs.nvim' , branch = "dev"}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
