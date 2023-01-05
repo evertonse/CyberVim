@@ -63,7 +63,7 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim",                commit = "7bb563ff2d811a63b207e9de63e3e9c0877cb6d5"  }
   use { "kyazdani42/nvim-web-devicons",         commit = "05e1072f63f6c194ac6e867b567e6b437d3d4622"  }
   use { "kyazdani42/nvim-tree.lua",             commit = "bac962caf472a4404ed3ce1ba2fcaf32f8002951"  }
-  use { "akinsho/bufferline.nvim",              commit = "c7492a76ce8218e3335f027af44930576b561013"  }
+  use { "akinsho/bufferline.nvim", tag = "v3.*",commit = "c7492a76ce8218e3335f027af44930576b561013"  } -- Yay buffer
 	use { "moll/vim-bbye",                        commit = "25ef93ac5a87526111f43e5110675032dbcacf56"  } -- Avoid messing with windwos layouts when closing buffers
   use { "nvim-lualine/lualine.nvim",            commit = "3497c6c6b3eead069e408ade1c9ff31f8550d66b"  }
   --use { "akinsho/toggleterm.nvim",  } -- Toggle Terminal
@@ -95,10 +95,17 @@ return packer.startup(function(use)
 
 	-->> Telescope
 	use { "nvim-telescope/telescope.nvim",        commit = "a606bd10c79ec5989c76c49cc6f736e88b63f0da"  }
+  
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-
-	-->> Treesitter
+  use { 'nvim-telescope/telescope-fzf-native.nvim', 
+    commit = "fab3e2212e206f4f8b3bbaa656e129443c9b802e", 
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', 
+    cond = vim.fn.executable 'make' == 1 
+  }
+  
+  use {'NvChad/nvim-colorizer.lua',             commit = "760e27df4dd966607e8fb7fd8b6b93e3c7d2e193"}
+	
+  -->> Treesitter
 --[[
   use {
 		"nvim-treesitter/nvim-treesitter",
@@ -119,9 +126,9 @@ return packer.startup(function(use)
     --"c6992f69d303cee0b43fd59125cb7afb0262d8fe" -- [Does Not Work]nov 1 2022 Update lockfile.jason 
     --"e7bdcee167ae41295a3e99ad460ae80d2bb961d7" -- [Turning Point][Does Not Work]nov 1 2022 lua: update queries
 
------- USE THE COMMIT BELLOW --------------
+  ------ USE THE COMMIT BELLOW --------------
     --"5f85a0a2b5c8e385c1232333e50c55ebdd0e0791" -- [Works] one commit later and it stops working help: update queries nov 1 2022
---------- USE THE COMMIT ABOVE --------------
+  ------- USE THE COMMIT ABOVE --------------
 
     --"7709eb4b47b8ee19e760aa2771c5735fda2798e1" -- [Works]Disable folding at startup nov 1
     -- "80503a99104e461599ef8810a64bce1b6d235f6a" -- [Works]31 oct 2022

@@ -99,15 +99,6 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-
---NvimTree @Conflict probably
-keymap("n", "<leader>nvo", ":NvimTreeOpen<CR>"            ,opts)
-keymap("n", "<leader>nvt", ":NvimTreeToggle<CR>"          ,opts)
-keymap("n", "<leader>nvr", ":NvimTreeRefresh<CR>"         ,opts)
-keymap("n", "<leader>nve", ":NvimTreeFindFileToggle<CR>"  ,opts)
-keymap("n", "<leader>nvf", ":NvimTreeFocus<CR>"           ,opts)
-
-
 -- >> move fast with crtl Movinge
 keymap("n", '<C-h>', "b", opts) 
 keymap("n", '<C-l>', "e", opts) 

@@ -84,6 +84,17 @@ local mappings = {
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Buffers",
   },
+  --NvimTree @Conflict p robably
+  t = {
+    ["o"] = {":NvimTreeOpen<CR>",           "Explorer Open"             },
+    ["r"] = {":NvimTreeRefresh<CR>",        "Explorer Refresh"          },
+    ["t"] = {":NvimTreeFindFileToggle<CR>", "Explorer Find File Toggle" },
+    ["f"] = {":NvimTreeFocus<CR>",          "Explorer Focus"            },
+    p     = {":NvimTreeCollapse<CR>",       "Explorer Collapse Folders" },
+    c     = {":NvimTreeClose<CR>",          "Explorer Close" },
+    n     = {":enew<CR>","Open New Tab"},
+  },
+
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
