@@ -125,7 +125,8 @@ local mappings = {
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+    s = { "<cmd>Telescope git_status<cr>", "Git Status" },
+    --s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
     u = {
       "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
       "Undo Stage Hunk",
@@ -190,7 +191,10 @@ local mappings = {
     name = "Replace",
     e = { "y:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>", "[R][E]place" },
     a = { "y:%s/<C-r>*/<C-r>*/<Left><Down>", "[R]place [A]ll" },
-  } 
+  },
+  k = {
+    m = {"<cmd>Telescope keymaps<CR>", "See bounded keymaps"}
+  }
   -- t = {
   --   name = "Terminal",
   --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
