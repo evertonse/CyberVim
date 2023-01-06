@@ -1,5 +1,5 @@
-local fn = vim.fn
 -->> Automatically install packer
+local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	PACKER_BOOTSTRAP = fn.system({
@@ -36,15 +36,17 @@ packer.init({
 		end,
     non_interactive = false, -- If true, disable display windows for all operations
     compact = false, -- If true, fold updates results by default
-    working_sym = '羽', -- The symbol for a plugin being installed/updated
-    error_sym = '✗', -- The symbol for a plugin with an error in installation/updating
-    done_sym = '✓', -- The symbol for a plugin which has completed installation/updating
-    removed_sym = '-', -- The symbol for an unused plugin which was removed
-    moved_sym = '→', -- The symbol for a plugin which was moved (e.g. from opt to start)
-    header_sym = '━', -- The symbol for the header line in packer's display
+
+    working_sym   = '羽', -- The symbol for a plugin being installed/updated
+    error_sym     = '✗', -- The symbol for a plugin with an error in installation/updating
+    done_sym      = '✓', -- The symbol for a plugin which has completed installation/updating
+    removed_sym   = '-', -- The symbol for an unused plugin which was removed
+    moved_sym     = '→', -- The symbol for a plugin which was moved (e.g. from opt to start)
+    header_sym    = '━', -- The symbol for the header line in packer's display
+
     show_all_info = true, -- Should packer show all update details automatically?
     prompt_border = 'double', -- Border style of prompt popups.
-    keybindings = { -- Keybindings for the display window
+    keybindings   = { -- Keybindings for the display window
       quit = 'q',
       toggle_update = 'u', -- only in preview
       continue = 'c', -- only in preview
@@ -72,7 +74,7 @@ return packer.startup(function(use)
   use { "lewis6991/impatient.nvim",             commit = --[["c90e273f7b8c50a02f956c24ce4804a47f18162e"older--]] "d3dd30ff0b811756e735eb9020609fa315bfbbcc" } -- Cache
   use { "lukas-reineke/indent-blankline.nvim",  commit = "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7"  } -- Show identations lines
   use { "goolord/alpha-nvim",                   commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31"  } -- UI Library with dashboard
-	use {"folke/which-key.nvim",                  commit = "5ffa07bc53294db5cd87c4cc741b7f586fa253f7"} -- Show Key popup
+	use { "folke/which-key.nvim",                 commit = "5ffa07bc53294db5cd87c4cc741b7f586fa253f7"} -- Show Key popup
 
 	-->> Cmp 
   use { "hrsh7th/nvim-cmp",                     commit = "c49ad26e894e137e401b1d294948c46327877eaf"  } -- The completion plugin
@@ -88,18 +90,20 @@ return packer.startup(function(use)
 
 	-->> LSP
 	use { "neovim/nvim-lspconfig",                commit = "0687eaacc634a82f4832599653ad1305fdf0c941"  } -- enable LSP
-  use { "williamboman/mason.nvim",              commit = "df1dd889b72ddcf63e262c22b8e69087560c698d" } -- simple to use language server installer
+  use { "williamboman/mason.nvim",              commit = "df1dd889b72ddcf63e262c22b8e69087560c698d"  } -- simple to use language server installer
   use { "williamboman/mason-lspconfig.nvim",    commit = "aa25b4153d2f2636c3b3a8c8360349d2b29e7ae3"  }
 	use { "jose-elias-alvarez/null-ls.nvim",      commit = "d09d7d82cc26d63673cef85cb62895dd68aab6d8"  } -- for formatters and linters
   use { "RRethy/vim-illuminate",                commit = "462b07609c850a4c4cb3dd9ac935d42abc7b85ed"  }
-
+  use { "folke/trouble.nvim",                   commit = "83ec606e7065adf134d17f4af6bae510e3c491c1"} -- LPS Diagnostic with colors and shit
+  use { 'folke/lsp-colors.nvim',                commit = "750d59b643865b906996028147675e9af216ea95"} -- LSP colors that might be missings
+  use { 'jackguo380/vim-lsp-cxx-highlight',     commit = "0e7476ff41cd65e55f92fdbc7326335ec33b59b0"} -- LSP based cpp highlighting
 	-->> Telescope
 	use { "nvim-telescope/telescope.nvim",        commit = "a606bd10c79ec5989c76c49cc6f736e88b63f0da"  }
   
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', 
     commit = "fab3e2212e206f4f8b3bbaa656e129443c9b802e", 
-    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build', 
+    run = 'make', 
     cond = vim.fn.executable 'make' == 1 
   }
   
@@ -144,7 +148,7 @@ return packer.startup(function(use)
   --Optionally use mine https://github.com/evertonse/nvim-treesitter, removed bug with windows that wasnt adressed nor have I seen any issues opened
   use {'evertonse/nvim-treesitter',                       commit = '599dab1fa26b398b37271cd67b4f57c4be4e25fe',       branch = 'main'}
   use {"JoosepAlviste/nvim-ts-context-commentstring",     commit = "0ecf92fe5ef5cac9892bf20c9579b5f06f85c277"} -- Nice Vim commenting --  context_commentstring { enable = true }
-
+  use {'David-Kunz/markid',                               commit = ""                                        } -- Every identifier has the same color
   use {'nvim-treesitter/playground',                      commit = "8a887bcf66017bd775a0fb19c9d8b7a4d6759c48"}
 
   -- Argument Coloring
@@ -168,8 +172,8 @@ return packer.startup(function(use)
     Using my fork of Mofiqul vscode nvim theme, 
     but my theme is Focusing on Visual Studio Theme, rather tha vs code
   --]]
-  use {'evertonse/vs.nvim', branch = "base",            commit = 'a87ad02da3892247a355193837d90efa63581d33'} -- use this for bare minimum, first commit and base branch
-  --use {'evertonse/vs.nvim' , branch = "dev"}
+  --use {'evertonse/vs.nvim', branch = "base",            commit = 'a87ad02da3892247a355193837d90efa63581d33'} -- use this for bare minimum, first commit and base branch
+  use {'evertonse/vs.nvim'}
 
   -->> Utils
   use {'dstein64/vim-startuptime',                      commit = 'cb4c112b9e0f224236ee4eab6bf5153406b3f88b'}

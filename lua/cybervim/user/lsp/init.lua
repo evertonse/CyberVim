@@ -6,3 +6,4 @@ end
 require "cybervim.user.lsp.mason"
 require("cybervim.user.lsp.handlers").setup()
 require "cybervim.user.lsp.null-ls"
+require "cybervim.user.lsp.trouble"

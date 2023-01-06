@@ -43,7 +43,7 @@ local setup = {
     scroll_up = "<c-u>", -- binding to scroll up inside the popup
   },
   window = {
-    border = "rounded", -- none, single, double, shadow
+    border = "none", -- none, single, double, shadow,rounded
     position = "bottom", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -52,7 +52,7 @@ local setup = {
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
     width = { min = 27, max = 50 }, -- min and max width of the columns
-    spacing = 2, -- spacing between columns
+    spacing = 1, -- spacing between columns
     align = "left", -- align columns left, center or right
   },
   ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
@@ -85,18 +85,18 @@ local mappings = {
     "Buffers",
   },
   --NvimTree @Conflict p robably
-  t = {
-    ["o"] = {":NvimTreeOpen<CR>",           "Explorer Open"             },
-    ["r"] = {":NvimTreeRefresh<CR>",        "Explorer Refresh"          },
-    ["t"] = {":NvimTreeFindFileToggle<CR>", "Explorer Find File Toggle" },
-    ["f"] = {":NvimTreeFocus<CR>",          "Explorer Focus"            },
-    p     = {":NvimTreeCollapse<CR>",       "Explorer Collapse Folders" },
-    c     = {":NvimTreeClose<CR>",          "Explorer Close" },
-    n     = {":enew<CR>","Open New Tab"},
+  e = {
+    ["e"] = {"<cmd>NvimTreeToggle<CR>",         "Explorer"                  },
+    ["o"] = {"<cmd>NvimTreeOpen<CR>",           "Explorer Open"             },
+    ["r"] = {"<cmd>NvimTreeRefresh<CR>",        "Explorer Refresh"          },
+    ["t"] = {"<cmd>NvimTreeFindFileToggle<CR>", "Explorer Find File Toggle" },
+    ["f"] = {"<cmd>NvimTreeFocus<CR>",          "Explorer Focus"            },
+    p     = {"<cmd>NvimTreeCollapse<CR>",       "Explorer Collapse Folders" },
+    c     = {"<cmd>NvimTreeClose<CR>",          "Explorer Close" },
+    n     = {"<cmd>enew<CR>","Open New Tab"},
   },
 
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
+  ["w"] = { "w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -146,6 +146,8 @@ local mappings = {
       "<cmd>Telescope diagnostics bufnr=0<cr>",
       "Document Diagnostics",
     },
+    p = { vim.diagnostic.open_float, "O[P]en Float"},
+    o = {vim.diagnostic.setloclist, "L[O]clist"},
     w = {
       "<cmd>Telescope diagnostics<cr>",
       "Workspace Diagnostics",

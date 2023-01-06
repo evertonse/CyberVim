@@ -80,6 +80,12 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
+-- Move within insert mode
+keymap('i', "<C-h>", "<Left>", opts)
+keymap('i', "<C-l>", "<Right>", opts)
+keymap('i', "<C-j>", "<Down>",  opts)
+keymap('i', "<C-k>", "<Up>",    opts)
+
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
@@ -147,7 +153,7 @@ keymap('i', '<S-Down>', "<C-o>v<Down>",opts)
 keymap('i', '<S-Left>', "<Left><C-o>v",opts)
 keymap('i', '<S-Right>', "<C-o>v",opts)
 
-keymap('v', 'i', "<ESC><ESC>",opts)
+--keymap('v', 'i', "<ESC><ESC>",opts)
 keymap('v', '<S-Up>', "<Up>",opts)
 keymap('v', '<S-Down>', "<Down>",opts)
 
@@ -169,11 +175,33 @@ map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-
+-- Don't copy the replaced text after pasting in visual mode
+-- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
+keymap('x',"p", 'p:let @+=@0<CR>:let @"=@0<CR>', opts)
+keymap('v',"p", 'p:let @+=@0<CR>:let @"=@0<CR>', opts)
 
 keymap("n", '<M-Up>', "ddkP",opts) --// Moving the line up
 keymap("n", '<M-Down>', "ddjP",opts) -- // Moving the line down
 
+-- @NotImplemented idea for going back and forth between buffers
+local keymappings = {
+  n = {
+      -- cycle through buffers
+      ["<TAB>"] = {
+        function()
+          require("nvchad_ui.tabufline").tabuflineNext()
+        end,
+        "goto next buffer",
+      },
+
+      ["<S-Tab>"] = {
+        function()
+          require("nvchad_ui.tabufline").tabuflinePrev()
+        end,
+        "goto prev buffer",
+      },
+  }
+}
 
 keymap("i", '<C-s>', "<C-o>:w<CR>",opts) -- saving with crt + s on insert mode 
 keymap("n", '<C-s>', ":w<CR>", opts) -- saving with crt + s on insert mode 
@@ -247,15 +275,11 @@ end)
 map('n', '[d', vim.diagnostic.goto_prev,opts)
 map('n', ']d', vim.diagnostic.goto_next,opts)
 
---[O]pen [F]loat
-map('n', '<leader>of', vim.diagnostic.open_float, opts)
---[L][O]clist
-map('n', '<leader>lo', vim.diagnostic.setloclist, opts)
 
 -- Shift Uab undident line 
 
 keymap('i', '<S-Tab>', "<C-d>",opts)
---keymap('i', '<C-BS>','<C-o>db',opts) 
+keymap('i', '<C-<Bslash>>','<C-o>db',opts) 
 
 -- <leader>te [T]oggleT[E]rm
 --keymap('n', '<leader>te',':ToggleTerm<CR>',opts)
