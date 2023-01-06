@@ -1,0 +1,30 @@
+The language server reports semantic scopes that can be mapped to vim highlight groups using something like the following:
+https://github.com/neovim/neovim/blob/master/src/nvim/highlight_group.c#L267
+let g:LanguageClient_semanticHighlightMaps = {}
+let g:LanguageClient_semanticHighlightMaps['cpp'] = {
+      \ '^entity.name.function.cpp': 'Function',
+      \ '^entity.name.function.method.cpp': 'Function',
+      \ '^entity.name.function.preprocessor.cpp': 'PreProc',
+      \ '^entity.name.namespace.cpp': 'Type',
+      \ '^entity.name.type.class.cpp': 'Type',
+      \ '^entity.name.type.enum.cpp': 'Type',
+      \ '^entity.name.type.template.cpp': 'Type',
+      \ '^meta.disabled': 'Comment',
+      \ '^variable.other.cpp': 'Variable',
+      \ '^variable.other.enummember.cpp': 'Constant',
+      \ '^variable.other.field.cpp': 'Variable',
+      \ }
+let g:LanguageClient_semanticHighlightMaps['c'] = {
+      \ '^entity.name.function.cpp': 'Function',
+      \ '^entity.name.function.method.cpp': 'Function',
+      \ '^entity.name.function.preprocessor.cpp': 'PreProc',
+      \ '^entity.name.namespace.cpp': 'Type',
+      \ '^entity.name.type.class.cpp': 'Type',
+      \ '^entity.name.type.enum.cpp': 'Type',
+      \ '^entity.name.type.template.cpp': 'Type',
+      \ '^meta.disabled': 'Comment',
+      \ '^variable.other.cpp': 'Variable',
+      \ '^variable.other.enummember.cpp': 'Constant',
+      \ '^variable.other.field.cpp': 'Variable',
+      \ }
+Use :source $VIMRUNTIME/syntax/hitest.vim to see what highlight groups are defined in vim and what they look like.

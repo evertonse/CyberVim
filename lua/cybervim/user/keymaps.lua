@@ -24,12 +24,12 @@ vim.g.mapleader = " "
 --vim.g.maplocalleader = " "
 
 -- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- normal_mode = "n",
+-- insert_mode = "i",
+-- visual_mode = "v",
+-- visual_block_mode = "x",
+-- term_mode = "t",
+-- command_mode = "c",
 
 -- Normal --
 -- Better window navigation
@@ -303,3 +303,4 @@ keymap('n', '<leader>ra', 'yW:%s/<C-r>*/<C-r>*/<Left><Down>', opts)
 --[S][E]arch shortcut 
 keymap("n", "<leader>se", "/<Down>",opts)
 
+map({"n",'i','v','x'}, "<F1>", "<ESC><ESC>:<Down>",opts)
