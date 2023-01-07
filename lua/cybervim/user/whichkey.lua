@@ -87,7 +87,7 @@ local mappings = {
   --NvimTree @Conflict p robably
   e = {
     ["e"] = {"<cmd>NvimTreeToggle<CR>",         "Explorer"                  },
-    ["o"] = {"<cmd>NvimTreeOpen<CR>",           "Explorer Open"             },
+    ["o"] = {"<cmd>NvimTreeOpen<C-w>w<CR>",           "Explorer Open"             },
     ["r"] = {"<cmd>NvimTreeRefresh<CR>",        "Explorer Refresh"          },
     ["t"] = {"<cmd>NvimTreeFindFileToggle<CR>", "Explorer Find File Toggle" },
     ["f"] = {"<cmd>NvimTreeFocus<CR>",          "Explorer Focus"            },
@@ -194,7 +194,10 @@ local mappings = {
   },
   k = {
     m = {"<cmd>Telescope keymaps<CR>", "See bounded keymaps"}
-  }
+  },
+  t = {
+    c = {'<CMD> TSCaptureUnderCursos<CR>', 'Tree sitter capturef under the cursos'}
+  },
   -- t = {
   --   name = "Terminal",
   --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },

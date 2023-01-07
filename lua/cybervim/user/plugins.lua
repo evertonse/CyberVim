@@ -65,7 +65,7 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim",                commit = "7bb563ff2d811a63b207e9de63e3e9c0877cb6d5"  }
   use { "kyazdani42/nvim-web-devicons",         commit = "05e1072f63f6c194ac6e867b567e6b437d3d4622"  }
   use { "kyazdani42/nvim-tree.lua",             commit = "bac962caf472a4404ed3ce1ba2fcaf32f8002951"  }
-  use { "akinsho/bufferline.nvim", tag = "v3.*",commit = "c7492a76ce8218e3335f027af44930576b561013"  } -- Yay buffer
+  use { "akinsho/bufferline.nvim", --[[ tag = "v3.*", ]] commit = "c7492a76ce8218e3335f027af44930576b561013"  } -- Yay buffer
 	use { "moll/vim-bbye",                        commit = "25ef93ac5a87526111f43e5110675032dbcacf56"  } -- Avoid messing with windwos layouts when closing buffers
   use { "nvim-lualine/lualine.nvim",            commit = "3497c6c6b3eead069e408ade1c9ff31f8550d66b"  }
   --use { "akinsho/toggleterm.nvim",  } -- Toggle Terminal
@@ -173,7 +173,7 @@ return packer.startup(function(use)
     but my theme is Focusing on Visual Studio Theme, rather tha vs code
   --]]
   --use {'evertonse/vs.nvim', branch = "base",            commit = 'a87ad02da3892247a355193837d90efa63581d33'} -- use this for bare minimum, first commit and base branch
-  use {'evertonse/vs.nvim'}
+  use {'evertonse/vs.nvim', branch = "dev"}
 
   -->> Utils
   use {'dstein64/vim-startuptime',                      commit = 'cb4c112b9e0f224236ee4eab6bf5153406b3f88b'}
