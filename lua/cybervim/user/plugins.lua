@@ -76,23 +76,28 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim",                   commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31"  } -- UI Library with dashboard
 	use { "folke/which-key.nvim",                 commit = "5ffa07bc53294db5cd87c4cc741b7f586fa253f7"} -- Show Key popup
 
-	-->> Cmp 
-  use { "hrsh7th/nvim-cmp",                     commit = "c49ad26e894e137e401b1d294948c46327877eaf"  } -- The completion plugin
-  use { "hrsh7th/cmp-buffer",                   commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa"  } -- buffer completions
-  use { "hrsh7th/cmp-path",                     commit = "91ff86cd9c29299a64f968ebb45846c485725f23"  } -- path completions
-	use { "saadparwaiz1/cmp_luasnip",             commit = "18095520391186d634a0045dacaa346291096566"  } -- snippet completions
-	use { "hrsh7th/cmp-nvim-lsp",                 commit = "59224771f91b86d1de12570b4070fe4ad7cd1eeb"  } -- another complete for lsp
-	use { "hrsh7th/cmp-nvim-lua",                 commit = "44acf47b28ff77b4b18d69d5b51b03184c87ccdf"  } -- completion with lua
-
-	-->> Snippets
-  use { "L3MON4D3/LuaSnip",                     commit = "5570fd797eae0790affb54ea669a150cad76db5d"  } --snippet engine
-  use { "rafamadriz/friendly-snippets",         commit = "484fb38b8f493ceeebf4e6fc499ebe41e10aae25"  } -- a bunch of snippets to use
-
 	-->> LSP
-	use { "neovim/nvim-lspconfig",                commit = "0687eaacc634a82f4832599653ad1305fdf0c941"  } -- enable LSP
-  use { "williamboman/mason.nvim",              commit = "df1dd889b72ddcf63e262c22b8e69087560c698d"  } -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim",    commit = "aa25b4153d2f2636c3b3a8c8360349d2b29e7ae3"  }
-	use { "jose-elias-alvarez/null-ls.nvim",      commit = "d09d7d82cc26d63673cef85cb62895dd68aab6d8"  } -- for formatters and linters
+  use {
+	  'VonHeikemen/lsp-zero.nvim',
+	  requires = {
+		  -- LSP Support
+		  {'neovim/nvim-lspconfig'},-- enable LSP
+		  {'williamboman/mason.nvim'},-- simple to use language server installer
+		  {'williamboman/mason-lspconfig.nvim'},-- for formatters and linters
+		  -- Autocompletion
+		  {'hrsh7th/nvim-cmp'},-- The completion plugin
+		  {'hrsh7th/cmp-buffer'},-- buffer completions
+		  {'hrsh7th/cmp-path'}, -- path completions
+		  {'saadparwaiz1/cmp_luasnip'}, -- snippet completions
+		  {'hrsh7th/cmp-nvim-lsp'},-- another complete for lsp
+		  {'hrsh7th/cmp-nvim-lua'},-- completion with lua
+
+		  -- Snippets
+		  {'L3MON4D3/LuaSnip'},--snippet engine
+		  {'rafamadriz/friendly-snippets'},-- a bunch of snippets to use
+	  }
+  }
+	use { "jose-elias-alvarez/null-ls.nvim",      commit = "d09d7d82cc26d63673cef85cb62895dd68aab6d8"  }
   use { "RRethy/vim-illuminate",                commit = "462b07609c850a4c4cb3dd9ac935d42abc7b85ed"  }
   use { "folke/trouble.nvim",                   commit = "83ec606e7065adf134d17f4af6bae510e3c491c1"} -- LPS Diagnostic with colors and shit
   use { 'folke/lsp-colors.nvim',                commit = "750d59b643865b906996028147675e9af216ea95"} -- LSP colors that might be missings
