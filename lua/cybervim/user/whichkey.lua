@@ -44,7 +44,7 @@ local setup = {
   },
   window = {
     border = "none", -- none, single, double, shadow,rounded
-    position = "bottom", -- bottom, top
+    position = "bottom-right", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
     padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
     winblend = 0,
