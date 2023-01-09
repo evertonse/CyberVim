@@ -196,7 +196,7 @@ local mappings = {
     m = {"<cmd>Telescope keymaps<CR>", "See bounded keymaps"}
   },
   t = {
-    c = {'<CMD> TSCaptureUnderCursos<CR>', 'Tree sitter capturef under the cursos'}
+    c = {'<CMD> TSCaptureUnderCursor<CR>', 'Tree sitter capturef under the cursos'}
   },
   -- t = {
   --   name = "Terminal",

@@ -145,10 +145,11 @@ return packer.startup(function(use)
 	}
 --]]
 
+  use {'evertonse/nvim-treesitter'}
   --Optionally use mine https://github.com/evertonse/nvim-treesitter, removed bug with windows that wasnt adressed nor have I seen any issues opened
-  use {'evertonse/nvim-treesitter',                       commit = '599dab1fa26b398b37271cd67b4f57c4be4e25fe',       branch = 'main'}
+  --use {'evertonse/nvim-treesitter',                       commit = '599dab1fa26b398b37271cd67b4f57c4be4e25fe',       branch = 'main'}
   use {"JoosepAlviste/nvim-ts-context-commentstring",     commit = "0ecf92fe5ef5cac9892bf20c9579b5f06f85c277"} -- Nice Vim commenting --  context_commentstring { enable = true }
-  use {'David-Kunz/markid',                               commit = ""                                        } -- Every identifier has the same color
+  --use {'David-Kunz/markid',                               commit = ""                                        } -- Every identifier has the same color
   use {'nvim-treesitter/playground',                      commit = "8a887bcf66017bd775a0fb19c9d8b7a4d6759c48"}
 
   -- Argument Coloring

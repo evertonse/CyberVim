@@ -1,0 +1,1 @@
+[WARN  07/01/2023 15:48:17 215175842800] ...m-data\site\pack\packer\start\packer.nvim/lua/packer.lua:800: You must run PackerCompile with profiling enabled first e.g. PackerCompile profile=true

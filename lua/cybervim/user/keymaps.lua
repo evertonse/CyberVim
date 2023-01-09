@@ -210,10 +210,10 @@ keymap("v", '<M-Up>', ":m '<-2<CR>gv=gv",opts)
 keymap("v", '<M-Down', ":m '>+2<CR>gv=gv",opts)
 
 --keymap("n", "J", "mzJ`z",opts)
-keymap("n", "<C-d>", "<C-d>zzz",opts)
-keymap("n", "<C-u>", "<C-u>zzz",opts)
-keymap("n", "n", "nzzzv" ,opts)
-keymap("n", "N", "Nzzzv" ,opts)
+keymap("n", "<C-d>", "<C-d>zz",opts)
+keymap("n", "<C-u>", "<C-u>zz",opts)
+keymap("n", "n", "nzzv" ,opts)
+keymap("n", "N", "Nzzv" ,opts)
 
 -- greatest remap ever
 keymap("x", "<leader>p", '\"_dP',opts)
@@ -286,13 +286,12 @@ keymap('i', '<C-<Bslash>>','<C-o>db',opts)
 -- make it work on Terminal mode
 
 -- Undo with A-u on insert mode is alredy a thing
-keymap('i', '<C-u>','<C-o>u',opts) 
 -- Undo with C-u on insert mode 
-keymap('i', '<C-r>','<C-o><C-r>',opts) 
+keymap('i', '<M-U>','<C-o><C-r>',opts) 
+keymap('n', 'U','<C-r>',opts) 
 
 -- <leader>a already does ths 
 --keymap('n', '<leader>ds',':Alpha<CR>',opts)
---keymap('i', '<BS>','<ESC>:lua print("hello")',opts)
 
 --[R][E]place shortcut 
 keymap('v', '<leader>re',  'y:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts)

@@ -55,7 +55,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("p", "  find [p]roject", ":Telescope projects <cr>"),
 	dashboard.button("r", "  [r]ecently used files", ":Telescope oldfiles <cr>"),
 	dashboard.button("t", "  find [t]ext", ":Telescope live_grep <cr>"),
-	dashboard.button("c", "  [c]onfiguration", ":e $myvimrc <cr>:NvimTreeOpen<CR><S-L>"),
+	dashboard.button("c", "  [c]onfiguration", ":e $myvimrc<CR>"),
 	dashboard.button("u", "  start[u]p time", ":StartupTime<CR>"),
 	dashboard.button("q", "  [q]uit neovim", ":qa<cr>"),
 }

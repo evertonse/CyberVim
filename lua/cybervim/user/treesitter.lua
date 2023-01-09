@@ -7,11 +7,14 @@ configs.setup({
   run = ':TSPUpdate',
   ensure_installed = {
     'help', "cpp", "bash", "c", "javascript", "json", 
-    "lua", "python", "typescript", "toml","tsx", "css", 
-    "rust", "java", "yaml", "markdown", 
+    "lua", "python", 
+    --"typescript", "toml","tsx", "css", 
+    "rust", 
+    --"java", "yaml", "markdown", 
     "markdown_inline",'vim' 
   }, -- one of "all" or a list of languages
-	
+  sync_install = true,	
+  auto_install = true,
   ignore_install = {  }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
@@ -50,6 +53,7 @@ configs.setup({
   context_commentstring = {
     enable = true
   },
+
   playground = {
     enable = true,
     disable = {},
