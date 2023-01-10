@@ -23,7 +23,7 @@ local settings = {
 		},
 	},
 	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
+	max_concurrent_installers = 1,
 }
 
 require("mason").setup(settings)

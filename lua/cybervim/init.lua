@@ -13,7 +13,7 @@ require "cybervim.user.comment"
 require "cybervim.user.nvim-tree"
 require "cybervim.user.bufferline"
 require "cybervim.user.lualine"
---require "cybervim.user.toggleterm"
+--require "cybervim.user.toggleterm"--deprecated
 require "cybervim.user.nvterm"
 require "cybervim.user.project"
 require "cybervim.user.impatient"
