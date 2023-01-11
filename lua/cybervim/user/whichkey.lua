@@ -29,9 +29,9 @@ local setup = {
   key_labels = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
-    -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
+    ["<space>"] = "SPC",
+    ["<cr>"] = "RET",
+    ["<tab>"] = "TAB",
   },
   icons = {
     breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
@@ -46,8 +46,8 @@ local setup = {
     border = "none", -- none, single, double, shadow,rounded
     position = "bottom-right", -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-    winblend = 0,
+    padding = { 1, 1, 1, 1 }, -- extra window padding [top, right, bottom, left]
+    winblend = 1,
   },
   layout = {
     height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -87,7 +87,7 @@ local mappings = {
   --NvimTree @Conflict p robably
   e = {
     ["e"] = {"<cmd>NvimTreeToggle<CR>",         "Explorer"                  },
-    ["o"] = {"<cmd>NvimTreeOpen<C-w>w<CR>",           "Explorer Open"             },
+    ["o"] = {"<cmd>NvimTreeOpen<C-w>w<CR>",     "Explorer Open"             },
     ["r"] = {"<cmd>NvimTreeRefresh<CR>",        "Explorer Refresh"          },
     ["t"] = {"<cmd>NvimTreeFindFileToggle<CR>", "Explorer Find File Toggle" },
     ["f"] = {"<cmd>NvimTreeFocus<CR>",          "Explorer Focus"            },
@@ -96,8 +96,8 @@ local mappings = {
     n     = {"<cmd>enew<CR>","Open New Tab"},
   },
 
-  ["w"] = { "w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["w"] = { ":w!<CR>", "Save" },
+  ["q"] = { ":q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
@@ -192,12 +192,10 @@ local mappings = {
     e = { "y:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>", "[R][E]place" },
     a = { "y:%s/<C-r>*/<C-r>*/<Left><Down>", "[R]place [A]ll" },
   },
-  k = {
-    m = {"<cmd>Telescope keymaps<CR>", "See bounded keymaps"}
-  },
   t = {
     c = {'<CMD> TSCaptureUnderCursor<CR>', 'Treesitter capturef under the cursor'},
-    p = {'<CMD> TSCaptureUnderCursor<CR>', 'Treesitter capturef under the cursor'},
+    p = {'<CMD> TSPlaygroundToggle<CR>', 'Treesitter Playground'},
+    k = { "<cmd>Telescope keymaps<CR>", "See bounded keymaps"},
   },
   -- t = {
   --   name = "Terminal",

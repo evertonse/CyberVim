@@ -4,17 +4,18 @@ if not status_ok then
 end
 
 configs.setup({
-  run = ':TSPUpdate',
+ -- run = ':TSPUpdate',
   ensure_installed = {
-    'help', "cpp", "bash", "c", "javascript", "json", 
+    'help', "cpp", "c" , "json", 
     "lua", "python", 
     --"typescript", "toml","tsx", "css", 
-    "rust", 
+    --"rust", 
     --"java", "yaml", "markdown", 
-    "markdown_inline",'vim' 
+    --"markdown_inline",
+    'vim' 
   }, -- one of "all" or a list of languages
-  sync_install = true,	
-  auto_install = true,
+  sync_install = false,	
+  auto_install = false,
   ignore_install = {  }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension
@@ -29,13 +30,13 @@ configs.setup({
 
 	indent = { enable = true, disable = { "python", "css" } },
   markid = { enable = false},
- -- query_linter = {
- --   enable = false,
- --   use_virtual_text = true,
- --   lint_events = {"BufWrite", "CursorHold"},
- -- },
+   query_linter = {
+     enable = false,
+     use_virtual_text = true,
+     lint_events = {"BufWrite", "CursorHold"},
+   },
   illuminate = {
-    enable = false,
+    enable = true,
     loaded = true,
   },
 
@@ -57,7 +58,7 @@ configs.setup({
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 250, -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = 'o',
