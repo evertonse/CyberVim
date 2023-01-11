@@ -3,8 +3,8 @@ if not status_ok then
   return
 end
 
-local status_ok, semantic_tokens = pcall (require, "nvim-semantic-tokens")
-if status_ok then
+local semantic_status_ok, semantic_tokens = pcall (require, "nvim-semantic-tokens")
+if semantic_status_ok then
   semantic_tokens.setup {
     preset = "default",
     -- highlighters is a list of modules following the interface of nvim-semantic-tokens.table-highlighter or 

@@ -303,3 +303,8 @@ keymap('n', '<leader>ra', 'yW:%s/<C-r>*/<C-r>*/<Left><Down>', opts)
 keymap("n", "<leader>se", "/<Down>",opts)
 
 map({"n",'i','v','x'}, "<F1>", "<ESC><ESC>:<Down>",opts)
+
+map({'n','v','x'}, "ge", "G",opts)
+map({'n','v','x'}, "gh", "0",opts)
+map({'n','v','x'}, "gl", "g_",opts)
+

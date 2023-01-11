@@ -28,8 +28,8 @@ configs.setup({
 		enable = true,
 	},
 
-	indent = { enable = true, disable = { "python", "css" } },
-  markid = { enable = false},
+	indent = { enable = true, disable = { } },
+  --markid = { enable = false},
    query_linter = {
      enable = false,
      use_virtual_text = true,

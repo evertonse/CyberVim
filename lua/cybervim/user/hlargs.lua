@@ -17,18 +17,22 @@ hlargs.setup {
   extras = {
     named_parameters = false,
   },
-  hl_priority = 10000,
+  hl_priority = 100000,
   excluded_argnames = {
-    declarations = {},
-    usages = {
-      python = { 'self', 'cls' },
-      lua = { 'self' },
-      cpp = {'this'}
-    }
+  },
+  declarations = {
+    python = { 'self', 'cls' },
+    lua = { 'self' },
+    cpp = {'this'}
+  },
+  usages = {
+    python = { 'self', 'cls' },
+    lua = { 'self' },
+    cpp = {'this'}
   },
   performance = {
     parse_delay = 1,
-    slow_parse_delay = 50,
+    slow_parse_delay = 150,
     max_iterations = 200,
     max_concurrent_partial_parses = 30,
     debounce = {
