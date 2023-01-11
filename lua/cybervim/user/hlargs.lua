@@ -5,35 +5,35 @@ if not status_ok then
 end
 
 hlargs.setup {
-  color = '#a0a0a0',
+  color = '#909090',
   highlight = {},
   excluded_filetypes = {},
   paint_arg_declarations = true,
   paint_arg_usages = true,
   paint_catch_blocks = {
-    declarations = false,
-    usages = false
+    declarations = true,
+    usages = true
   },
   extras = {
-    named_parameters = false,
+    named_parameters = true,
   },
-  hl_priority = 100000,
+  hl_priority = 1000,
   excluded_argnames = {
-  },
-  declarations = {
-    python = { 'self', 'cls' },
-    lua = { 'self' },
-    cpp = {'this'}
-  },
-  usages = {
-    python = { 'self', 'cls' },
-    lua = { 'self' },
-    cpp = {'this'}
+    declarations = {
+      python = {'self', 'cls' },
+      lua = { 'self' },
+      cpp = {'this'}
+    },
+    usages = {
+      python = { 'self', 'cls' },
+      lua = { 'self' },
+      cpp = {'this'}
+    },
   },
   performance = {
     parse_delay = 1,
-    slow_parse_delay = 150,
-    max_iterations = 200,
+    slow_parse_delay = 25,
+    max_iterations = 2000,
     max_concurrent_partial_parses = 30,
     debounce = {
       partial_parse = 3,
