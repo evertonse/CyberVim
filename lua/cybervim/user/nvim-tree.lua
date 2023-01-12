@@ -11,7 +11,7 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
-  --update_cwd = true,
+  update_cwd = true,
   update_focused_file = {
     enable = false,
    -- update_cwd = true, -- uncomment this line to make update cwd when focusing a tab

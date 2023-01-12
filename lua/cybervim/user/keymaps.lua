@@ -185,7 +185,7 @@ keymap("n", '<M-Down>', "ddjP",opts) -- // Moving the line down
 
 -- @NotImplemented idea for going back and forth between buffers
 local keymappings = {
-  n = {
+  ['key'] = {
       -- cycle through buffers
       ["<TAB>"] = {
         function()
@@ -212,8 +212,8 @@ keymap("v", '<M-Down', ":m '>+2<CR>gv=gv",opts)
 --keymap("n", "J", "mzJ`z",opts)
 keymap("n", "<C-d>", "<C-d>zz",opts)
 keymap("n", "<C-u>", "<C-u>zz",opts)
-keymap("n", "n", "nzzv" ,opts)
-keymap("n", "N", "Nzzv" ,opts)
+keymap("n", "n", "nzz" ,opts)
+keymap("n", "N", "Nzz" ,opts)
 
 -- greatest remap ever
 keymap("x", "<leader>p", '\"_dP',opts)
@@ -278,9 +278,6 @@ map('n', ']d', vim.diagnostic.goto_next,opts)
 
 -- Shift Uab undident line 
 
-keymap('i', '<S-Tab>', "<C-d>",opts)
-keymap('i', '<C-<Bslash>>','<C-o>db',opts) 
-
 -- <leader>te [T]oggleT[E]rm
 --keymap('n', '<leader>te',':ToggleTerm<CR>',opts)
 -- make it work on Terminal mode
@@ -300,7 +297,7 @@ keymap('n', '<leader>re', 'yW:%s/<C-r>*/<C-r>*/gc<Left><Left><Left><Down>', opts
 keymap('v', '<leader>ra',  'y:%s/<C-r>*/<C-r>*/<Left><Down>', opts)
 keymap('n', '<leader>ra', 'yW:%s/<C-r>*/<C-r>*/<Left><Down>', opts)
 --[S][E]arch shortcut 
-keymap("n", "<leader>se", "/<Down>",opts)
+keymap("n", "<leader>se", "yW/<C-r>*<Down>",opts)
 
 map({"n",'i','v','x'}, "<F1>", "<ESC><ESC>:<Down>",opts)
 
