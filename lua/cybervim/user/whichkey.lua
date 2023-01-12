@@ -195,7 +195,9 @@ local mappings = {
   t = {
     c = {'<CMD> TSCaptureUnderCursor<CR>', 'Treesitter capturef under the cursor'},
     p = {'<CMD> TSPlaygroundToggle<CR>', 'Treesitter Playground'},
+    i = { "<cmd>Inspect<CR>", "Inspect lsp tokens"},
     k = { "<cmd>Telescope keymaps<CR>", "See bounded keymaps"},
+    h = { "<cmd>Telescope highlights<CR>", "See highlight"},
   },
   -- t = {
   --   name = "Terminal",
