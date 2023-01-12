@@ -11,11 +11,11 @@ end
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
-  update_cwd = true,
+  --update_cwd = true,
   update_focused_file = {
-    enable = true,
+    enable = false,
    -- update_cwd = true, -- uncomment this line to make update cwd when focusing a tab
-    update_cwd = false,
+    update_cwd = true,
   },
   renderer = {
     root_folder_modifier = ":t",
@@ -56,7 +56,7 @@ nvim_tree.setup {
     },
   },
   view = {
-    width = 27,
+    width = 30,
     side = "left",
     mappings = {
       list = {
