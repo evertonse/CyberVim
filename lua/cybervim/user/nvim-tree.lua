@@ -34,7 +34,8 @@ nvim_tree.setup {
           symlink_open = "",
         },
         git = {
-          unstaged = "",
+          -- 󰀨󰗖󰕗󰰜󱖔󰁢󰪥󰮍󱍸󰊰󰮎󰗖
+          unstaged = "",
           staged = "S",
           unmerged = "",
           renamed = "➜",
@@ -56,11 +57,16 @@ nvim_tree.setup {
     },
   },
   view = {
-    width = 30,
+    width = 26,
     side = "left",
     mappings = {
       list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
+        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit_no_picker" },
+        { key =  "<leader>c", cb = tree_cb "close" },
+        { key =  "<leader>r", cb = tree_cb "change_root_to_node" },
+      
+        { key =  "<leader>e", cb = function(node) vim.cmd(":wincmd p"); end},
+
         { key = "h", cb = tree_cb "close_node" },
         { key = "v", cb = tree_cb "vsplit" },
       },

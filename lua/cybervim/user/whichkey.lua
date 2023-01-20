@@ -85,16 +85,7 @@ local mappings = {
     "Buffers",
   },
   --NvimTree @Conflict p robably
-  e = {
-    ["e"] = {"<cmd>NvimTreeToggle<CR>",         "Explorer"                  },
-    ["o"] = {"<cmd>NvimTreeOpen<C-w>w<CR>",     "Explorer Open"             },
-    ["r"] = {"<cmd>NvimTreeRefresh<CR>",        "Explorer Refresh"          },
-    ["t"] = {"<cmd>NvimTreeFindFileToggle<CR>", "Explorer Find File Toggle" },
-    ["f"] = {"<cmd>NvimTreeFocus<CR>",          "Explorer Focus"            },
-    p     = {"<cmd>NvimTreeCollapse<CR>",       "Explorer Collapse Folders" },
-    c     = {"<cmd>NvimTreeClose<CR>",          "Explorer Close" },
-    n     = {"<cmd>enew<CR>","Open New Tab"},
-  },
+  ["e"] = {"<cmd>NvimTreeFocus<CR>",          "Explorer Focus"            },
 
   ["w"] = { ":w!<CR>", "Save" },
   ["q"] = { ":q!<CR>", "Quit" },
@@ -198,6 +189,7 @@ local mappings = {
     i = { "<cmd>Inspect<CR>", "Inspect lsp tokens"},
     k = { "<cmd>Telescope keymaps<CR>", "See bounded keymaps"},
     h = { "<cmd>Telescope highlights<CR>", "See highlight"},
+    n = {"<cmd>enew<CR>","Open New Tab"},
   },
   -- t = {
   --   name = "Terminal",

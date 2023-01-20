@@ -98,6 +98,7 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 	illuminate.on_attach(client)
+
 end
 
 return M
