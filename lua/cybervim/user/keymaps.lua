@@ -301,7 +301,10 @@ keymap("n", "<leader>se", "yW/<C-r>*<Down>",opts)
 
 map({"n",'i','v','x'}, "<F1>", "<ESC><ESC>:<Down>",opts)
 
-map({'n','v','x'}, "ge", "G",opts)
-map({'n','v','x'}, "gh", "0",opts)
-map({'n','v','x'}, "gl", "g_",opts)
+map({'n','v','x'}, "ge", "G", opts)
+map({'n','v','x'}, "gh", "0", opts)
+map({'n','v','x'}, "gl", "$", opts)
+
+
+map({'n','v','x'}, "<leader>s", "\"_s",opts)
 

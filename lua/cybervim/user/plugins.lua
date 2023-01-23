@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use { "windwp/nvim-autopairs",                nothing = "03580d758231956d33c8dd91e2be195106a79fa4"  } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim",                nothing = "7bb563ff2d811a63b207e9de63e3e9c0877cb6d5"  }
   use { "kyazdani42/nvim-web-devicons",         nothing = "05e1072f63f6c194ac6e867b567e6b437d3d4622"  }
+  -- MAYBE use file browser instead https://github.com/nvim-telescope/telescope-file-browser.nvim
   use { "kyazdani42/nvim-tree.lua",             nothing = "bac962caf472a4404ed3ce1ba2fcaf32f8002951"  }
   use { "akinsho/bufferline.nvim", --[[ tag = "v3.*", ]] nothing = "c7492a76ce8218e3335f027af44930576b561013"  } -- Yay buffer
 	use { "moll/vim-bbye",                        nothing = "25ef93ac5a87526111f43e5110675032dbcacf56"  } -- Avoid messing with windwos layouts when closing buffers
