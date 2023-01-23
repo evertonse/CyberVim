@@ -58,8 +58,6 @@ keymap("v", "K", ":m '<-2<CR>gv=gv",opts)
 keymap("n", "Y", "y$",opts)
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
--- [B]uffer [N]ew
-keymap("n", "<leader>bn", ":tabnew<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==g", opts)
@@ -169,7 +167,7 @@ keymap('n', '<M-Right>', "<C-i>",opts)
 
 -- Keymaps for better default experience
 -- See `:help keymap()`
-map({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+map({"x", 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
 keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -203,8 +201,8 @@ local keymappings = {
   }
 }
 
-keymap("i", '<C-s>', "<C-o>:w<CR>",opts) -- saving with crt + s on insert mode 
-keymap("n", '<C-s>', ":w<CR>", opts) -- saving with crt + s on insert mode 
+--keymap("i", '<C-s>', "<C-o>:w<CR>",opts) -- saving with crt + s on insert mode 
+--keymap("n", '<C-s>', ":w<CR>", opts) -- saving with crt + s on insert mode 
 
 keymap("v", '<M-Up>', ":m '<-2<CR>gv=gv",opts)
 keymap("v", '<M-Down', ":m '>+2<CR>gv=gv",opts)
@@ -216,39 +214,20 @@ keymap("n", "n", "nzz" ,opts)
 keymap("n", "N", "Nzz" ,opts)
 
 -- greatest remap ever
-keymap("x", "<leader>p", '\"_dP',opts)
+keymap("x", "<leader>p", '"_dP',opts)
 
 -- >> Clip Board option 
 keymap("n", "<leader>y", '"_y',opts)
 keymap("v", "<leader>y", '"_y',opts)
 keymap("n", "<leader>Y", '"_Y',opts)
 
-keymap("n", "<leader>d", '"_d',opts)
-keymap("v", "<leader>d", '"_d',opts)
+map({'n','x','v'}, "<leader>d", "\"_d",opts)
 
-keymap("n", "<leader>D", '"_D',opts)
-keymap("v", "<leader>D", '"_D',opts)
+map({'n','x','v'}, "<leader>D", '"_D',opts)
 
-keymap("n", "<leader>p", '"_p',opts)
-keymap("v", "<leader>p", '"_p',opts)
-keymap("n", "<leader>p", '"_P',opts)
+map({'n','x','v'}, "<leader>p", '"_p',opts)
 
--- make it not yank it, pretty much everything
-keymap("n", "<leader>d", '_d',opts)
-keymap("v", "<leader>d", '_d',opts)
-
-keymap("n", "<leader>D", '_D',opts)
-keymap("v", "<leader>D", '_D',opts)
-
-keymap("n", "<leader>p", '_p',opts)
-keymap("v", "<leader>p", '_p',opts)
-
-keymap("v", "<leader>p", '_P',opts)
-keymap("n", "<leader>p", '_P',opts)
-
-keymap("n", "x", '"_x',opts)
-keymap("v", "x", '"_x',opts)
-keymap("x", "x", '"_x',opts)
+map({'n','x','v'}, "x", '"_x',opts)
 -- << Clip Board options
 
 
