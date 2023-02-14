@@ -188,8 +188,16 @@ return packer.startup(function(use)
 
   -->> Utils
   use {'dstein64/vim-startuptime',                      nothing = 'cb4c112b9e0f224236ee4eab6bf5153406b3f88b'}
+  use {'tpope/vim-surround',                            nothing = 'cb4c112b9e0f224236ee4eab6bf5153406b3f88b'}
+  use {
+      --https://github.com/andymass/vim-matchup
+    'andymass/vim-matchup',
+    setup = function()
+      -- may set any options here
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end
+  }
   
-
   -->> Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

@@ -8,10 +8,9 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'pyright',
-  'pylsp',
+  'jdtls',
   'clangd',
   'tsserver',
-  'sumneko_lua',
   'rust_analyzer',
 })
 
@@ -47,26 +46,27 @@ local pylsp_settings = {
   }
 }
 -- pylsp'vim'
-lsp.configure('pylsp', pylsp_settings)
+lsp.configure('jdtls', {})
 
-lsp.configure('pyright', {})
+lsp.configure('pyright', pylsp_settings)
 
-lsp.setup_servers({
-  root_dir = true,
-  'rust_analyzer',
-  'pylsp',
-  opts = {
-    flags = {
-      debounce_text_changes = 200,
-    },
-    single_file_support = true,
-    on_attach = function(client, bufnr)
-      print("I'm rust i'm crab, or i'm pylsp, lsp has been attached")
-    end
-  }
-})
+--lsp.setup_servers({
+--  root_dir = true,
+--  'rust_analyzer',
+--  'pylsp',
+--  opts = {
+--    flags = {
+--      debounce_text_changes = 200,
+--    },
+--    single_file_support = true,
+--    on_attach = function(client, bufnr)
+--      print("I'm rust i'm crab, or i'm pylsp, lsp has been attached")
+--    end
+--  }
+--})
 
 local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+
 if null_ls_status_ok then
   local null_opts = lsp.build_options('null-ls', {})
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
@@ -137,13 +137,13 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+  ['<C-space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),  --['<C-space>'] = cmp.mapping.complete(),
 })
 
 -- disable completion with tab
 -- this helps with copilot setup
---cmp_mappings['<Tab>'] = nil
---cmp_mappings['<S-Tab>'] = nil
+cmp_mappings['<Tab>'] = nil
+cmp_mappings['<S-Tab>'] = nil
 
 local ok, lspkind = pcall(require, "lspkind")
 if not ok then
@@ -166,6 +166,7 @@ lsp.setup_nvim_cmp({
     })
   }
 })
+
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local keymap = vim.api.nvim_buf_set_keymap
@@ -207,7 +208,7 @@ lsp.on_attach(function(client, bufnr)
   --  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.nvim_workspace()
+--lsp.nvim_workspace()
 
 lsp.setup()
 
